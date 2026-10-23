@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fa">
+<title>NPTEL Practice | Conservation Geography</title>
+<style>
+:root{color-scheme:light;--bg:#f6f7fb;--panel:#fff;--text:#182230;--muted:#667085;--line:#e5e7eb;--accent:#3157d5;--accent-soft:#eef2ff;--green:#16804a;--green-bg:#eaf8f0;--red:#c43232;--red-bg:#fff0f0;--shadow:0 8px 28px rgba(16,24,40,.055)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);line-height:1.5}
+button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #a5b4fc;outline-offset:2px}
+.wrap{max-width:920px;margin:0 auto;padding:24px 16px 44px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}.brand{font-weight:750;letter-spacing:-.03em;font-size:20px}.brand span{color:var(--accent)}.sub{color:var(--muted);font-size:13px;margin-top:2px}
+.pill{font-size:12px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:#475467;white-space:nowrap}
+.hero{background:linear-gradient(130deg,#fff 0%,#f0f3ff 100%);border:1px solid #e4e8fa;border-radius:20px;padding:24px;margin-bottom:16px;box-shadow:var(--shadow)}.hero h1{font-size:clamp(24px,4vw,34px);letter-spacing:-.045em;line-height:1.15;margin:0 0 8px}.hero p{margin:0;color:var(--muted);max-width:600px;font-size:14px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}.select{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;color:var(--text);min-width:190px}
+.btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:10px 14px;font-weight:650;transition:.15s}.btn:hover{background:#f8fafc}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn.primary:hover{background:#2447bd}.btn:disabled{opacity:.4;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}.stat .label{font-size:12px;color:var(--muted)}.stat .value{font-weight:750;font-size:22px;letter-spacing:-.03em;margin-top:2px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.card-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.q-meta{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.03em;text-transform:uppercase}.progress{height:5px;background:#edf0f5}.progress>div{height:100%;background:var(--accent);transition:width .2s}.card-body{padding:24px 22px}.question{font-size:clamp(18px,2.5vw,22px);font-weight:680;letter-spacing:-.025em;line-height:1.4;margin:0 0 20px}.options{display:grid;gap:10px}.option{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;padding:14px;border:1px solid var(--line);background:#fff;border-radius:12px;color:var(--text);line-height:1.45;transition:border-color .12s,background .12s}.option:hover:not(:disabled){border-color:#9aaaf5;background:#fafbff}.letter{flex:0 0 27px;height:27px;display:grid;place-items:center;border-radius:8px;background:#f2f4f7;color:#475467;font-size:12px;font-weight:750}.option.correct{border-color:#66c18a;background:var(--green-bg)}.option.correct .letter{background:#c9f0d8;color:#11683b}.option.wrong{border-color:#f09a9a;background:var(--red-bg)}.option.wrong .letter{background:#ffd8d8;color:#a32121}.option:disabled{cursor:default;opacity:1}
+.feedback{display:none;margin-top:16px;border-radius:12px;padding:13px 15px;font-size:14px}.feedback.show{display:block}.feedback.good{background:var(--green-bg);color:#11683b}.feedback.bad{background:var(--red-bg);color:#a32121}.feedback strong{display:block;margin-bottom:2px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}.nav-right{display:flex;gap:8px}.hint{color:var(--muted);font-size:12px;margin-top:14px}.list-wrap{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.list-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.list-head h2{font-size:14px;margin:0}.jump-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px}.jump{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 0;font-size:12px;color:#475467}.jump.current{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:800}.jump.done{background:var(--green-bg);border-color:#b9e8c9;color:var(--green)}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:22px}
+@media(max-width:600px){.wrap{padding:16px 12px 30px}.hero{padding:19px}.top{align-items:flex-start}.stats{gap:7px}.stat{padding:11px}.stat .value{font-size:19px}.card-head{padding:15px 16px}.card-body{padding:19px 16px}.jump-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.controls{align-items:stretch}.select{flex:1;min-width:0}.controls .btn{flex:1}.nav{align-items:stretch}.nav .btn{flex:1}.nav-right{flex:1}.nav-right .btn{flex:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div><div class="brand">NPTEL <span>Practice</span></div><div class="sub">Conservation Geography · Assignment revision</div></div>
+    <div class="pill">100 questions · Offline ready</div>
+  </header>
+  <section class="hero">
+    <h1>Practise until you’re ready.</h1>
+    <p>Choose a week or practise every available question. Get instant feedback, see the correct answer, and restart as often as you want.</p>
+    <div class="controls">
+      <select class="select" id="weekSelect" aria-label="Choose week"></select>
+      <button class="btn primary" id="startBtn">Start practice</button>
+      <button class="btn" id="resetBtn">Restart set</button>
+    </div>
+  </section>
+  <section class="stats" aria-label="Practice statistics">
+    <div class="stat"><div class="label">Questions in this set</div><div class="value" id="totalStat">100</div></div>
+    <div class="stat"><div class="label">Answered</div><div class="value" id="answeredStat">0</div></div>
+    <div class="stat"><div class="label">Current score</div><div class="value" id="scoreStat">0 / 0</div></div>
+  </section>
+  <main class="card">
+    <div class="card-head"><div><div class="q-meta" id="weekLabel">Week 1</div><div class="sub" id="qPosition">Question 1 of 10</div></div><div class="pill" id="statusPill">Not answered</div></div>
+    <div class="progress"><div id="progressBar" style="width:0%"></div></div>
+    <div class="card-body">
+      <h2 class="question" id="questionText">Loading questions…</h2>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+      <div class="nav">
+        <button class="btn" id="prevBtn">← Previous</button>
+        <div class="nav-right"><button class="btn" id="nextBtn">Next →</button></div>
+      </div>
+      <div class="hint">Your progress is kept for this browser tab. Restart clears the current set so you can try again from the beginning.</div>
+    </div>
+  </main>
+  <section class="list-wrap">
+    <div class="list-head"><h2>Question navigator</h2><span class="sub">Select any question</span></div>
+    <div class="jump-grid" id="jumpGrid"></div>
+  </section>
+  <div class="footer">Made for personal study · No login · No tracking · Works offline after download</div>
+</div>
+<script src="questions.js"></script>
+<script>
+(() => {
+ const allWeeks = window.QUIZ_DATA || [];
+ const select = document.getElementById('weekSelect');
+ const $ = id => document.getElementById(id);
+ let questions = [], index = 0, answers = {};
+ const letters = ['A','B','C','D'];
+ allWeeks.forEach(w => {
+   const op = document.createElement('option'); op.value = String(w.week);
+   op.textContent = `Week ${w.week} · ${w.questions.length} questions`; select.appendChild(op);
+ });
+ const all = document.createElement('option'); all.value = 'all'; all.textContent = `All weeks · ${allWeeks.reduce((n,w)=>n+w.questions.length,0)} questions`;
+ select.insertBefore(all, select.firstChild); select.value = 'all';
+ function loadSet(resetIndex=true) {
+   const val = select.value;
+   questions = val === 'all' ? allWeeks.flatMap(w=>w.questions) : (allWeeks.find(w=>String(w.week)===val)?.questions || []);
+   if (resetIndex) index = 0;
+   answers = {};
+   render();
+ }
+ function counts() {
+   const answered = Object.values(answers).filter(a=>a.selected !== undefined).length;
+   const correct = Object.values(answers).filter(a=>a.selected === a.answer).length;
+   return {answered,correct};
+ }
+ function render() {
+   if (!questions.length) return;
+   const q = questions[index], stored = answers[q.id];
+   $('totalStat').textContent = questions.length;
+   const c = counts(); $('answeredStat').textContent = c.answered; $('scoreStat').textContent = `${c.correct} / ${c.answered}`;
+   $('weekLabel').textContent = `Week ${q.week} · Question ${q.number}`;
+   $('qPosition').textContent = `Question ${index+1} of ${questions.length}`;
+   $('progressBar').style.width = `${((index+1)/questions.length)*100}%`;
+   $('questionText').textContent = q.question;
+   $('options').replaceChildren();
+   q.options.forEach((label,i)=>{
+     const b = document.createElement('button'); b.className='option'; b.type='button';
+     const letter = document.createElement('span'); letter.className='letter'; letter.textContent=letters[i];
+     const txt = document.createElement('span'); txt.textContent=label;
+     b.append(letter,txt);
+     if (stored && stored.selected !== undefined) {
+       if (i===q.answer) b.classList.add('correct');
+       if (i===stored.selected && i!==q.answer) b.classList.add('wrong');
+     }
+     b.addEventListener('click',()=>choose(i));
+     $('options').appendChild(b);
+   });
+   const fb = $('feedback');
+   if (stored && stored.selected !== undefined) {
+     const correct = stored.selected === q.answer;
+     fb.className = `feedback show ${correct?'good':'bad'}`;
+     fb.replaceChildren();
+     const strong = document.createElement('strong'); strong.textContent = correct ? 'Correct' : 'Incorrect';
+     const detail = document.createElement('span');
+     detail.textContent = correct ? `Answer: ${letters[q.answer]}. ${q.options[q.answer]}` : `Correct answer: ${letters[q.answer]}. ${q.options[q.answer]}`;
+     fb.append(strong,detail);
+     $('statusPill').textContent = correct ? 'Correct' : 'Review answer';
+   } else {
+     fb.className='feedback'; fb.textContent=''; $('statusPill').textContent='Not answered';
+   }
+   $('prevBtn').disabled = index===0;
+   $('nextBtn').textContent = index===questions.length-1 ? 'Finish set' : 'Next →';
+   drawJumpGrid();
+ }
+ function choose(i) {
+   const q=questions[index];
+   answers[q.id] = {selected:i, answer:q.answer};
+   render();
+ }
+ function drawJumpGrid() {
+   const grid=$('jumpGrid'); grid.replaceChildren();
+   questions.forEach((q,i)=>{
+     const b=document.createElement('button'); b.className='jump'; b.textContent=i+1; b.type='button';
+     if(i===index)b.classList.add('current');
+     if(answers[q.id] && answers[q.id].selected!==undefined)b.classList.add('done');
+     b.title=`Go to question ${i+1}`;
+     b.addEventListener('click',()=>{index=i;render();window.scrollTo({top:0,behavior:'smooth'});});
+     grid.appendChild(b);
+   });
+ }
+ $('startBtn').addEventListener('click',()=>{loadSet(true);document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'start'});});
+ $('resetBtn').addEventListener('click',()=>{loadSet(true);});
+ select.addEventListener('change',()=>loadSet(true));
+ $('prevBtn').addEventListener('click',()=>{if(index>0){index--;render();}});
+ $('nextBtn').addEventListener('click',()=>{
+   if(index<questions.length-1){index++;render();}
+   else {const c=counts(); $('statusPill').textContent='Set complete'; $('feedback').className='feedback show '+(c.answered===c.correct?'good':'bad'); $('feedback').textContent=`Set complete: ${c.correct} correct out of ${c.answered} answered. Use Restart set to practise again.`; $('feedback').scrollIntoView({behavior:'smooth',block:'nearest'});}
+ });
+ loadSet();
+})();
+</script>
+</body>
+</html>
